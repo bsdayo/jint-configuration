@@ -1,25 +1,33 @@
+using Jint.Runtime;
+
 namespace Jint.Extensions.Configuration.Tests;
 
 public class ProviderTest
 {
-    [Fact]
-    public void AddProperty_ShouldResolveCorrectly()
+    [Theory]
+    [InlineData("appsettings.export-default.js", true)]
+    [InlineData("appsettings.export-directly.js", false)]
+    public void AddProperty_ShouldResolveCorrectly(string file, bool exportDefault)
     {
         Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
         // Arrange
-        var source = File.ReadAllText("appsettings.js");
+        var source = File.ReadAllText(file);
         var engine = new Engine();
         engine.Modules.Add("config", source);
-        var moduleObj = engine.Modules.Import("config").Get("default").AsObject();
+        var moduleObj = engine.Modules.Import("config");
+        if (exportDefault)
+            moduleObj = moduleObj.Get("default").AsObject();
         var data = new Dictionary<string, string?>();
         var sectionStack = new Stack<string>();
 
         // Act
-        foreach (var (sectionValue, descriptor) in moduleObj.GetOwnProperties())
-            JintConfigurationProvider.AddProperty(data, sectionStack, sectionValue.ToString(), descriptor.Value);
+        foreach (var key in moduleObj.GetOwnPropertyKeys(Types.String))
+            JintConfigurationProvider.AddProperty(
+                data, sectionStack, key.ToString(), moduleObj.GetOwnProperty(key).Value);
 
         // Assert
+        Assert.Equal(8, data.Count);
         Assert.Equal("123", data["number"]);
         Assert.Equal("str", data["string"]);
         Assert.Equal("false", data["boolean"]);

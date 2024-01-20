@@ -37,14 +37,16 @@ public class OptionsTest
         public string? D { get; set; }
     }
 
-    [Fact]
-    public void Options_ShouldBeResolvedCorrectly()
+    [Theory]
+    [InlineData("appsettings.export-default.js")]
+    [InlineData("appsettings.export-directly.js")]
+    public void Options_ShouldBeResolvedCorrectly(string file)
     {
         Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
         // Arrange
         var builder = new ConfigurationBuilder();
-        builder.AddJavaScriptModule("appsettings.js");
+        builder.AddJavaScriptModule(file);
         var root = builder.Build();
 
         // Act

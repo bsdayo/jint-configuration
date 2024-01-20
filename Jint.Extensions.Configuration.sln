@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jint.Extensions.Configurati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jint.Extensions.Configuration.Tests", "tests\Jint.Extensions.Configuration.Tests\Jint.Extensions.Configuration.Tests.csproj", "{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreExample", "examples\AspNetCoreExample\AspNetCoreExample.csproj", "{9328602D-15B4-4937-8339-9D93E818CB85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9328602D-15B4-4937-8339-9D93E818CB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9328602D-15B4-4937-8339-9D93E818CB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9328602D-15B4-4937-8339-9D93E818CB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9328602D-15B4-4937-8339-9D93E818CB85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

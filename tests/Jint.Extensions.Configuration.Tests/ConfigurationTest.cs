@@ -4,14 +4,16 @@ namespace Jint.Extensions.Configuration.Tests;
 
 public class ConfigurationTest
 {
-    [Fact]
-    public void Configuration_ShouldMatchSource()
+    [Theory]
+    [InlineData("appsettings.export-default.js")]
+    [InlineData("appsettings.export-directly.js")]
+    public void Configuration_ShouldMatchSource(string file)
     {
         Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
         // Arrange
         var builder = new ConfigurationBuilder();
-        builder.AddJavaScriptModule("appsettings.js");
+        builder.AddJavaScriptModule(file);
 
         // Act
         var config = builder.Build();

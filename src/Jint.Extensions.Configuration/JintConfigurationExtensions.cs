@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Jint;
+using Jint.Extensions.Configuration;
 
-namespace Jint.Extensions.Configuration;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.Configuration;
 
 public static class JintConfigurationExtensions
 {

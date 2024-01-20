@@ -1,4 +1,5 @@
 ﻿using Jint.Native;
+using Jint.Runtime;
 using Microsoft.Extensions.Configuration;
 
 namespace Jint.Extensions.Configuration;
@@ -27,10 +28,13 @@ internal class JintConfigurationProvider : ConfigurationProvider
             _configureEngineOptions?.Invoke(options);
         });
 
-        var configObj = engine.Modules.Import($"./{_relativeFilePath}").Get("default").AsObject();
+        var module = engine.Modules.Import($"./{_relativeFilePath}");
+        var configObj = module.HasOwnProperty("default")
+            ? module.Get("default").AsObject()
+            : module;
         var sectionStack = new Stack<string>();
-        foreach (var (sectionValue, descriptor) in configObj.GetOwnProperties())
-            AddProperty(Data, sectionStack, sectionValue.ToString(), descriptor.Value);
+        foreach (var key in configObj.GetOwnPropertyKeys(Types.String))
+            AddProperty(Data, sectionStack, key.ToString(), configObj.GetOwnProperty(key).Value);
     }
 
     internal static void AddProperty(IDictionary<string, string?> data, Stack<string> sectionStack,
@@ -59,8 +63,9 @@ internal class JintConfigurationProvider : ConfigurationProvider
         {
             sectionStack.Push(section);
 
-            foreach (var (sectionValue, descriptor) in jsValue.AsObject().GetOwnProperties())
-                AddProperty(data, sectionStack, sectionValue.ToString(), descriptor.Value);
+            var obj = jsValue.AsObject();
+            foreach (var propKey in obj.GetOwnPropertyKeys(Types.String))
+                AddProperty(data, sectionStack, propKey.ToString(), obj.GetOwnProperty(propKey).Value);
 
             sectionStack.Pop();
         }

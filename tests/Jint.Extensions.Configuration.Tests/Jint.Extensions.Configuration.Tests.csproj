@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="appsettings.js" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="appsettings.*.js" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
