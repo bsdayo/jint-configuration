@@ -65,7 +65,10 @@ export default {
 }
 ```
 
-Export separately is also supported (but cannot mix with `export default`):
+## Misc
+
+Export separately is also supported, but cannot mix with `export default`
+(if a module exports both, `export default` will be used and others will be ignored):
 
 ```javascript
 export const logging = {
