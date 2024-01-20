@@ -5,6 +5,9 @@ export const date = new Date('2024-01-20')
 export const nested = {
   a: 456.789,
   b: 'b',
-  c: { d: null }
+  c: {
+    d: null,
+    e: ['x', { y: 'z' }]
+  }
 }
 export const undef = undefined

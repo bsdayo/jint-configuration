@@ -6,7 +6,10 @@ export default {
   nested: {
     a: 456.789,
     b: 'b',
-    c: { d: null }
+    c: {
+      d: null,
+      e: ['x', { y: 'z' }]
+    }
   },
   undef: undefined
 }

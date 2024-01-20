@@ -27,15 +27,21 @@ public class ProviderTest
                 data, sectionStack, key.ToString(), moduleObj.GetOwnProperty(key).Value);
 
         // Assert
-        Assert.Equal(8, data.Count);
+        Assert.Equal(10, data.Count);
         Assert.Equal("123", data["number"]);
         Assert.Equal("str", data["string"]);
         Assert.Equal("false", data["boolean"]);
         Assert.Equal(new DateTime(2024, 01, 20), DateTime.Parse(data["date"]!).ToUniversalTime());
+
         Assert.Equal("456.789", data["nested:a"]);
         Assert.Equal("b", data["nested:b"]);
+
         Assert.False(data.ContainsKey("nested:c"));
         Assert.Null(data["nested:c:d"]);
+        Assert.False(data.ContainsKey("nested:c:e"));
+        Assert.Equal("x", data["nested:c:e:0"]);
+        Assert.Equal("z", data["nested:c:e:1:y"]);
+
         Assert.Null(data["undef"]);
     }
 }
