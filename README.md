@@ -65,6 +65,8 @@ export default {
 }
 ```
 
+Full ASP.NET Core example can be found [here](./examples/AspNetCoreExample).
+
 ## Misc
 
 Export separately is also supported, but cannot mix with `export default`
