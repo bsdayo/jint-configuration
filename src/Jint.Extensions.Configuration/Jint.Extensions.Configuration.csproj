@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>Jint.Extensions.Configuration</Title>
+        <PackageVersion>3.0.0</PackageVersion>
+        <Authors>bsdayo</Authors>
+        <Description>Add JavaScript modules as your configuration source!</Description>
+        <PackageProjectUrl>https://github.com/bsdayo/Jint.Extensions.Configuration</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/bsdayo/Jint.Extensions.Configuration/blob/main/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/bsdayo/Jint.Extensions.Configuration.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>jint;javascript;js;configuration;extensions</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Jint" Version="3.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <InternalsVisibleTo Include="$(MSBuildProjectName).Tests" />
+    </ItemGroup>
+
+</Project>

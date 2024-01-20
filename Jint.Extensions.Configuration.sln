@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jint.Extensions.Configuration", "src\Jint.Extensions.Configuration\Jint.Extensions.Configuration.csproj", "{034AAC0D-430A-43EA-A082-1614802684B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jint.Extensions.Configuration.Tests", "tests\Jint.Extensions.Configuration.Tests\Jint.Extensions.Configuration.Tests.csproj", "{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{034AAC0D-430A-43EA-A082-1614802684B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034AAC0D-430A-43EA-A082-1614802684B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034AAC0D-430A-43EA-A082-1614802684B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034AAC0D-430A-43EA-A082-1614802684B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF12B23-CF18-4C71-BAD0-DA574280D2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
